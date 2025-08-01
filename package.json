@@ -1,0 +1,53 @@
+{
+  "name": "upstart-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:e2e": "cypress open",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "preview": "cross-env NODE_ENV=production node ./dist/server.js",
+    "build:app": "tsc --project tsconfig.server.json && tsc-esm-fix --tsconfig tsconfig.server.json",
+    "build:app:watch": "node watch.js",
+    "dev:app": "node --watch-path=dist dist/server.js",
+    "dev": "pnpm format && pnpm build:app && concurrently \"pnpm build:app:watch\" \"pnpm dev:app\"",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "compression": "^1.8.0",
+    "express": "^5.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.7.1",
+    "sirv": "^3.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/compression": "^1.8.1",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.10",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
+    "cypress": "^14.5.3",
+    "postcss": "^8.4.21",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^3.3.2",
+    "tsc-esm-fix": "^3.1.2",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0",
+    "vitest": "^0.34.6"
+  }
+}

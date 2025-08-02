@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 type TemperatureData = {
-  temperature: 80;
-  temperatureUnit: "F";
-  shortForecast: "Sunny";
-  detailedForecast: "Clear skies.";
+  temperature: number;
+  temperatureUnit: string;
+  shortForecast: string;
+  detailedForecast: string;
 };
 
 type ForecastDay = {
